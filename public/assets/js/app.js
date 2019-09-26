@@ -1,25 +1,25 @@
 //---------- CLIENT-SIDE Javascript ------//
 
 //Function to display /friends.json in home page (index.html)
-  // For testing purpose : check if sever is working
-// function getFriends() {
-//   $('#testing').empty();
+  //For testing purpose : check if sever is working
+function getFriends() {
+  $('#testing').empty();
 
-//   $.ajax({
-//     url: '/friends.json',
-//     method: 'GET'
-//   }).then(function (friends) {
-//     for (var friendIndex in friends) {
-//       console.log(friendIndex);
-//       console.log(friends[friendIndex]);
-//       var p = $('<p>');
-//       p.text(`id: ${friends[friendIndex].id}, friend name: ${friends[friendIndex].friend_name}, link: ${friends[friendIndex].picture_link}`);
+  $.ajax({
+    url: '/friends.json',
+    method: 'GET'
+  }).then(function (friends) {
+    for (var friendIndex in friends) {
+      console.log(friendIndex);
+      console.log(friends[friendIndex]);
+      var p = $('<p>');
+      p.text(`id: ${friends[friendIndex].id}, friend name: ${friends[friendIndex].friend_name}, link: ${friends[friendIndex].picture_link}`);
 
-//       $('#testing').append(p);
-//     }
-//   })
-// }
-// getFriends();
+      $('#testing').append(p);
+    }
+  })
+}
+getFriends();
 
 //Function to pass user input to database
   // button class (.btn) on.click won't work here. Need to use form id (#)
