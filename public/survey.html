@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Friend Finder Survey</title>
-
- 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
 
+<body>
   <!-- A GET Route to `survey.html` which should display the survey page.
     This page should show a form 
       Input with user's name - this will go into the friend table as the friend_name
@@ -17,6 +18,36 @@
           of all of the questions and a dropdown or radio buttons of 1 to 5
           the results of this will go into the scores table
 -->
- 
+  <main class="container">
+    <section id="userInput">
+      <h2>About You</h2>
+
+      <form action="/user-input" method="GET" id="insert_user">
+        <div class="form-group">
+          <!--name should match column name in MySQL-->
+          <label for="inputName">Name (require)</label>
+          <input type="text" name='friend_name' class="form-control" id="inputName" placeholder="Enter your name....">
+        </div>
+        <div class="form-group">
+          <label for="inputLink">Your Photo Link (required)</label>
+          <input type="text" name='picture_link' class="form-control" id="inputName"
+            placeholder="Insert your photo link here... ">
+        </div>
+      </form>
+    </section>
+
+    <section id="surveyArea"></section>
+    <section id="testing"></section>
+
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+  <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
+
 </html>
