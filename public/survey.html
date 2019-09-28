@@ -22,17 +22,8 @@
     <section id="userInput">
       <h2>About You</h2>
 
-      <form action="/user-input" method="GET" id="insert_user">
-        <div class="form-group">
-          <!--name should match column name in MySQL-->
-          <label for="inputName">Name (require)</label>
-          <input type="text" name='friend_name' class="form-control" id="inputName" placeholder="Enter your name....">
-        </div>
-        <div class="form-group">
-          <label for="inputLink">Your Photo Link (required)</label>
-          <input type="text" name='picture_link' class="form-control" id="inputName"
-            placeholder="Insert your photo link here... ">
-        </div>
+      <form action="/user-input" method="POST" id="insert_user">
+        
       </form>
     </section>
 
