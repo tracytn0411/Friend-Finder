@@ -14,19 +14,28 @@ const mysql = require('mysql'); //to connect to MySQL
 const bodyParser = require('body-parser') //to be able to use POST
 
 // Integrate body-parser with express
-app.use(bodyParser.urlencoded({ extended: false }))
+  //TODO Read about qs library: why extended false or true
+app.use(bodyParser.urlencoded({ extended: false })) //don't use qs library
 app.use(bodyParser.json())
 
 //Serving static files in directory "public"
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static('public'))
+
+//Route to set home.html as homepage (default is index.html)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/home.html'))
+})
+//Route to survey.html
+app.get('/survey', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/survey.html'))
+})
 
 // Create a connection to MySQL via JawsDB (Heroku addon)
 const connection = mysql.createConnection(process.env.JAWSDB_MAROON_URL);
 connection.connect();
 
-// For testing purpose
-  //? Status: Working: Data from table friends display on homepage
-app.get('/friends.json', function (req, res) {
+//    * A GET route with the url `/api/friends`. This will be used to display all friends from the friends table in json
+app.get('/api/friends', function (req, res) {
   connection.query('SELECT * FROM friends', function (error, results, fields) {
     if (error) res.send(error)
     else res.json(results);
@@ -62,7 +71,7 @@ app.post('/user-input', function (req, res, next) {
 });
 
 // 2nd middleware function fore same path
-app.post('/user-input', function (req, res) {
+app.post('/user-input', function (req, res, next) {
   let score1 = req.body.question1
   let score2 = req.body.question2
   let score3 = req.body.question3
@@ -80,8 +89,16 @@ app.post('/user-input', function (req, res) {
 
   connection.query(sql, [inputscore], function (error, results, fields) {
     if (error) res.send(error)
-    else res.redirect('/'); //redirect to homepage 
+    else next(); //redirect to homepage 
   })
+})
+
+app.post('/user-input', function (req, res) {
+  connection.query('SELECT scores.friend_id AS friend_id, scores.total_scores AS friend_score, friends.friend_name AS friend_name, friends.picture_link AS link FROM (SELECT friend_id, SUM(scores) AS total_scores FROM scores GROUP BY friend_id) scores LEFT JOIN friends ON scores.friend_id = friends.id;', function(error, results, fields){
+    if (error) res.send(error)
+    else res.send(results)
+  })
+  
 })
 
 //This won't work after use express.static("public")
