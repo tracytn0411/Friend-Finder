@@ -1,0 +1,42 @@
+body {
+  background: url('../images/Home-background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+@font-face{
+  font-family: 'friends';
+  src: url('../fonts/Friends.TTF')
+}
+
+@font-face{
+  font-family: 'friends2';
+  src: url('../fonts/GABRWFFR.TTF')
+}
+#homeTitle {
+  font-family: 'friends2';
+}
+#homeIntro {
+  font-family: 'friends2'
+}
+
+#surveyPage {
+  background-color: rgba(247, 248, 245, 0.562)
+}
+.form-check-inline {
+  margin-right: 2rem;
+}
+
+.modal {
+  background-color: white;
+}
+
+.modal-title {
+  font-family: 'friends'
+}
+
+.friend-name-modal {
+  font-family: 'friends2'
+}

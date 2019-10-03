@@ -54,7 +54,7 @@ app.post('/api/friends', function (req, res) {
       var newScores = JSON.parse(req.body.scores); //convert scores back to object
       // console.log(newScores)
       var newSum = 0 //Sum of all scores in the newScores array
-      for (var i=0; i <2; i++) {
+      for (var i=0; i <8; i++) {
         newSum += newScores[i]
         console.log(newSum)
         connection.query('INSERT INTO scores (question_id, friend_id, scores) VALUES (?, ?, ?)', [i+1, friendInsertID, newScores[i]], function (error, results, fields) {

@@ -8,6 +8,7 @@
   <title>Friend Finder Survey</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -18,17 +19,16 @@
           of all of the questions and a dropdown or radio buttons of 1 to 5
           the results of this will go into the scores table
 -->
-  <main class="container">
-    <section id="userInput">
-      <h2>About You</h2>
+  <main class="container" id="surveyPage">
+    <section id="userInput" class="mt-5 py-4 px-2">
+      <h1 class="pb-2">Survey Questions</h1>
 
-      <form action="/user-input" method="POST" id="insert_user">
-        
+      <form action="/api/friends" method="POST" id="insert_user">
       </form>
     </section>
 
-    <section id="surveyArea"></section>
-    <section id="testing"></section>
+    <section id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></section>
+    
 
   </main>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
