@@ -4,7 +4,7 @@
   //  *First section: input field to collect user name & photo link 
   getQuestions = () => {
     let nameSection = $('<div>').addClass('form-group').append([
-      $('<label>').attr('for', 'inputName').text('Your Name'),
+      $('<label>').attr('for', 'inputName').addClass('inputName').text('Your Name'),
       $('<input>').addClass('form-control').attr({
         'type': 'text',
         'name': 'friend_name',
@@ -13,7 +13,7 @@
       })
     ])
     let photoSection = $('<div>').addClass('form-group mb-5').append([
-      $('<label>').attr('for', 'inputLink').text('Your Photo Link'),
+      $('<label>').attr('for', 'inputLink').addClass('inputLink').text('Your Photo Link'),
       $('<input>').addClass('form-control').attr({
         'type': 'text',
         'name': 'picture_link',
@@ -21,11 +21,10 @@
         'placeholder': 'Photo link...'
       })
     ])
-    var surveyIntro = $('<h3>').text('Please answer the following questions: ')
+    var surveyIntro = $('<h3>').addClass('surveyIntro pb-md-2').text('Please answer the following questions: ')
     $('#insert_user').append(nameSection, photoSection, surveyIntro)
     
-  //  *Function to attach radio buttons to each question and display on survey.html
-    //? Status: Working -> Radios display on html and work properly for each question
+  //  *Second section: Function to attach radio buttons to each question and display on survey.html
   $.ajax({
       url: '/questions.json',
       method: 'GET'
@@ -36,7 +35,7 @@
         console.log(questions[questionIndex]);
 
         let surveySection = $('<fieldset>').addClass('form-group')
-        let sQuestion = $('<h4>').text(`Question ${questions[questionIndex].id}. ${questions[questionIndex].question}`);
+        let sQuestion = $('<h4>').addClass('font-weight-light pt-md-2').text(`Question ${questions[questionIndex].id}. ${questions[questionIndex].question}`);
 
         // TODO: Find a way to minimize this part. Try to learn more ES6
         // for (let i=0; i<6; i++) {
@@ -89,29 +88,30 @@
           $('<label>').addClass('form-check-label').attr('for', 'sRadio5').text('5'),
         ])
 
-        $('<div>').addClass('form-check')
         surveySection.append(sQuestion)
         surveySection.append([sRadio1, sRadio2, sRadio3, sRadio4, sRadio5])
         $('#insert_user').append(surveySection);
       }
 
-      let surveyBtn = $('<div>').addClass('form-group submitBtn').append(
+      let surveyBtn = $('<div>').addClass('form-group submitBtn text-monospace pt-2').append(
         $('<button>').addClass('btn btn-info').text('Submit')
       )
       $('#insert_user').append(surveyBtn)
     })
 }
-getQuestions();
 
+$(function(){
+  getQuestions();
+});
 
 $(document).on('click', '.submitBtn', function(){
   
   event.preventDefault()
   var newName = $('#inputName').val()
   var newLink = $('input[name = "picture_link"]').val()
-  console.log(newName)
-  console.log(newLink)
-  var newScores =[]
+  //console.log(newName)
+  //console.log(newLink)
+  var newScores =[] //push all scores into an array
   for (var i = 1; i <=8; i++ ){ 
     newScores.push(parseInt($('input[name = question' + i + ']:checked').val(),10))
   }
@@ -133,6 +133,7 @@ $(document).on('click', '.submitBtn', function(){
       var matchLink = response[0].link;
       console.log(matchLink);
 
+      //Pop up modal to display match result 
       var divModal = $('<div>').addClass('modal-dialog').attr('role', 'document').append(
         $('<div>').addClass('modal-content')
       )
@@ -151,8 +152,9 @@ $(document).on('click', '.submitBtn', function(){
         $('<img>').addClass('img-fluid').attr('src', matchLink)
       ]);
 
+      //Btn to close the modal
       var modalFooter = $('<div>').addClass('modal-footer').append(
-        $('<button>').addClass('btn btn-secondary').attr('data-dismiss','modal').text('Close')
+        $('<button>').addClass('btn btn-secondary text-monospace').attr('data-dismiss','modal').text('Close')
       )
 
       divModal.append(modalHeader, modalBody, modalFooter);

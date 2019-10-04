@@ -20,24 +20,24 @@
           the results of this will go into the scores table
 -->
   <main class="container" id="surveyPage">
-    <section id="userInput" class="mt-5 py-4 px-2">
-      <h1 class="pb-2">Survey Questions</h1>
 
+    <!-- Section to display survey form -->
+    <section id="userInput" class="mt-5 py-4 px-2">
+      <h1 class="surveyTitle pb-2 text-center">Survey Questions</h1>
       <form action="/api/friends" method="POST" id="insert_user">
       </form>
     </section>
 
+    <!-- Section to pop up modal to display match result -->
     <section id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></section>
-    
 
   </main>
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-
   <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 
