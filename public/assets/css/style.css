@@ -1,10 +1,9 @@
 body {
   background: url('../images/Home-background.png');
   background-size: cover;
-  background-position: center;
+  background-position: center right;
   background-attachment: fixed;
 }
-
 
 @font-face{
   font-family: 'friends';
@@ -15,16 +14,17 @@ body {
   font-family: 'friends2';
   src: url('../fonts/GABRWFFR.TTF')
 }
+
+/* Home Page */
 #homeTitle {
   font-family: 'friends2';
 }
-#homeIntro {
-  font-family: 'friends2'
-}
 
+/* Survey Page */
 #surveyPage {
   background-color: rgba(247, 248, 245, 0.562)
 }
+
 .form-check-inline {
   margin-right: 2rem;
 }
@@ -33,10 +33,29 @@ body {
   background-color: white;
 }
 
-.modal-title {
-  font-family: 'friends'
+.modal-title,
+.inputName, .inputLink,
+.friend-name-modal,
+.surveyTitle,
+.surveyIntro {
+  font-family: 'friends2'
 }
 
-.friend-name-modal {
-  font-family: 'friends2'
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+  .container {
+    padding: 0;
+  }
 }

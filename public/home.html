@@ -14,29 +14,30 @@
 
 <body class="flex flex-column">
   <!--Homepage index.html should link to survey.html and display all the friends in the database-->
-  
-  <main class="container text-center">
-    <h1 id='homeTitle' class="mt-5 text-white">F.RI.E.N.D F.I.N.D.E.R</h1>
-    <p id='homeIntro' class="lead text-white p-4">Whether you recently moved to Bay Area or just want to find a new friend nearby, it's always a good idea to start with someone that you are most compatible with.  Hit the button below to start the survey and connect you to your best match !</p>
 
-      <a class='btn btn-primary m-5' href="/survey">Start Survey</a> 
-    
+  <main class="container text-center">
+    <h1 id='homeTitle' class="mt-md-5 pt-5 text-white">F.RI.E.N.D F.I.N.D.E.R</h1>
+    <p id='homeIntro' class="text-white text-monospace p-5">Whether you recently moved to Bay Area or just want to find a new friend nearby, it's always a good idea to start with someone that you are most compatible with.  Hit the button below to start the survey and connect you to your best match !</p>
+
+    <a id='surveyBtn' class='btn btn-info text-monospace font-weight-bold m-5' href="/survey">Start Survey</a>
+
+
   </main>
 
   <footer class="footer fixed-bottom p-3">
-     <div class="container"> 
-       <a href="/api/friends">API Friends List</a>
+    <div class="container-fluid text-center text-md-right">
+      <a href="/api/friends" class="text-monospace">API Friends List</a>
     </div>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-</script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
-<script type="text/javascript" src="assets/js/app.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
 
 </body>
 
